@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06100e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Naseeb ♥ Darksha — Our Nikah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#e9c46a;
+    --gold-2:#f8e7b3;
+    --gold-3:#b98b2e;
+    --deep:#06100e;
+    --deep-2:#0c211c;
+    --emerald:#0f3d33;
+    --cream:#fdf7ea;
+    --blush:#ffd9e0;
+    --ink:#0a1a16;
+
+    /* safe area helpers */
+    --sat: env(safe-area-inset-top, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+  html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+  }
+
+  body{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    color:var(--cream);
+    background:
+      radial-gradient(1100px 700px at 15% -10%, rgba(233,196,106,.16), transparent 60%),
+      radial-gradient(900px 700px at 90% 15%, rgba(255,217,224,.10), transparent 60%),
+      radial-gradient(1000px 900px at 50% 110%, rgba(15,61,51,.75), transparent 65%),
+      linear-gradient(170deg, #06100e 0%, #0a1b17 40%, #071310 100%);
+    background-attachment:fixed;
+    min-height:100vh;
+    min-height:100svh;
+    overflow-x:hidden;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+    overscroll-behavior-y:none;
+  }
+
+  /* prevent iOS zoom on button tap */
+  button, a { touch-action: manipulation; }
+
+  /* ---------- floating petals ---------- */
+  .petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+  .petal{
+    position:absolute;top:-10vh;
+    animation-name:fall;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+    will-change:transform;
+    user-select:none;
+  }
+  @keyframes fall{
+    0%{transform:translate3d(0,-12vh,0) rotate(0deg)}
+    50%{transform:translate3d(4vw,50vh,0) rotate(180deg)}
+    100%{transform:translate3d(-3vw,112vh,0) rotate(360deg)}
+  }
+
+  /* ---------- layout ---------- */
+  main{position:relative;z-index:2}
+  section{
+    padding: clamp(2.5rem, 8vw, 6rem) clamp(1rem, 4vw, 1.25rem);
+    padding-left: max(clamp(1rem, 4vw, 1.25rem), var(--sal));
+    padding-right: max(clamp(1rem, 4vw, 1.25rem), var(--sar));
+  }
+  .wrap{max-width:960px;margin:0 auto;width:100%}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height: 100vh;
+    min-height: 100svh;
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    text-align:center;
+    padding-top: calc(4rem + var(--sat));
+    padding-bottom: calc(4rem + var(--sab));
+    position:relative;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;inset:0;
+    background:radial-gradient(600px 400px at 50% 45%, rgba(233,196,106,.13), transparent 70%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    font-family:'Amiri',serif;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-size:clamp(.6rem,2.6vw,.8rem);
+    color:var(--gold);
+    opacity:.9;
+    margin-bottom:1.4rem;
+    padding-left:.28em;
+  }
+  .eyebrow::before,.eyebrow::after{content:"✦";margin:0 .7em;opacity:.6}
+
+  .names{
+    font-family:'Great Vibes',cursive;
+    font-weight:400;
+    font-size:clamp(2.6rem,13vw,7.5rem);
+    line-height:1.05;
+    background:linear-gradient(180deg,#fff8e4 0%, #f2d68b 40%, var(--gold) 62%, var(--gold-3) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 6px 30px rgba(233,196,106,.35));
+    padding:.08em .05em .12em;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+    max-width:100%;
+  }
+  .names .amp{
+    display:inline-block;
+    font-size:.6em;
+    color:var(--blush);
+    -webkit-text-fill-color:var(--blush);
+    margin:0 .1em;
+    transform:translateY(-.05em);
+    opacity:.95;
+  }
+
+  .date-line{
+    margin-top:1.4rem;
+    font-size:clamp(.9rem,3.6vw,1.35rem);
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold-2);
+    opacity:.95;
+  }
+  .date-line .dot{color:var(--blush);margin:0 .4em}
+
+  .tagline{
+    margin-top:1.6rem;
+    max-width:34ch;
+    font-size:clamp(1rem,3.8vw,1.35rem);
+    font-style:italic;
+    color:rgba(253,247,234,.82);
+    padding:0 .5rem;
+  }
+  .tagline em{color:var(--gold);font-style:italic}
+  .tagline br{display:none}
+
+  .ornament{
+    margin-top:2.2rem;
+    color:var(--gold);
+    letter-spacing:.5em;
+    font-size:.85rem;
+    opacity:.75;
+  }
+
+  .scroll-hint{
+    position:absolute;
+    bottom: calc(1.5rem + var(--sab));
+    left:50%;transform:translateX(-50%);
+    color:var(--gold);opacity:.6;font-size:1.4rem;
+    animation:bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+  /* ---------- headings ---------- */
+  .sec-title{
+    font-family:'Great Vibes',cursive;
+    font-weight:400;
+    font-size:clamp(1.8rem,7.5vw,3.2rem);
+    text-align:center;
+    color:var(--gold-2);
+    line-height:1.2;
+    overflow-wrap:break-word;
+  }
+  .sec-sub{
+    text-align:center;
+    text-transform:uppercase;
+    letter-spacing:.25em;
+    font-size:clamp(.6rem,2.4vw,.72rem);
+    color:rgba(233,196,106,.7);
+    margin-top:.6rem;
+    padding:0 .5rem;
+  }
+
+  /* ---------- counter ---------- */
+  .counters{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(.5rem,2.2vw,1.4rem);
+    margin-top:2.2rem;
+  }
+  .c-card{
+    background:linear-gradient(160deg, rgba(233,196,106,.13), rgba(255,255,255,.03));
+    border:1px solid rgba(233,196,106,.28);
+    border-radius:clamp(12px,3vw,18px);
+    padding:clamp(.85rem,3.5vw,1.8rem) .35rem;
+    text-align:center;
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    box-shadow:0 14px 40px -22px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.08);
+    min-width:0;
+  }
+  .c-card b{
+    display:block;
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    font-size:clamp(1.6rem,8vw,3.4rem);
+    line-height:1;
+    color:var(--gold-2);
+    text-shadow:0 2px 18px rgba(233,196,106,.35);
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .c-card small{
+    display:block;
+    margin-top:.5rem;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:clamp(.5rem,2.1vw,.68rem);
+    color:rgba(253,247,234,.62);
+  }
+
+  .ticker{
+    margin-top:1.6rem;
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(1rem,4.8vw,1.6rem);
+    letter-spacing:.24em;
+    color:var(--blush);
+    opacity:.9;
+    font-variant-numeric:tabular-nums;
+  }
+  .total{
+    margin-top:.6rem;
+    text-align:center;
+    font-style:italic;
+    color:rgba(253,247,234,.7);
+    font-size:clamp(.9rem,3.4vw,1.15rem);
+    padding:0 .5rem;
+  }
+  .total b{color:var(--gold);font-style:normal;font-weight:600}
+
+  /* ---------- cards ---------- */
+  .card{
+    background:linear-gradient(160deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+    border:1px solid rgba(233,196,106,.22);
+    border-radius:clamp(16px,4vw,22px);
+    padding:clamp(1.4rem,5.5vw,3.2rem);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    box-shadow:0 30px 70px -40px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.07);
+    text-align:center;
+    overflow-wrap:break-word;
+  }
+
+  /* ---------- verse ---------- */
+  .arabic{
+    font-family:'Amiri',serif;
+    font-size:clamp(1.3rem,6.5vw,2.5rem);
+    line-height:1.9;
+    color:var(--gold-2);
+    direction:rtl;
+    text-shadow:0 2px 24px rgba(233,196,106,.25);
+    padding:0 .25rem;
+    overflow-wrap:break-word;
+  }
+  .trans{
+    margin-top:1.4rem;
+    font-size:clamp(1rem,3.8vw,1.35rem);
+    font-style:italic;
+    color:rgba(253,247,234,.88);
+    max-width:40ch;margin-left:auto;margin-right:auto;
+  }
+  .ref{
+    margin-top:1rem;
+    text-transform:uppercase;
+    letter-spacing:.24em;
+    font-size:clamp(.6rem,2.4vw,.68rem);
+    color:var(--gold);
+    opacity:.85;
+  }
+
+  /* ---------- letter ---------- */
+  .letter{
+    max-width:44rem;
+    margin:0 auto;
+    text-align:left;
+    font-size:clamp(1rem,3.8vw,1.28rem);
+    color:rgba(253,247,234,.9);
+  }
+  .letter p{margin-bottom:1.1rem}
+  .letter .salute{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(1.5rem,6.5vw,2.4rem);
+    color:var(--gold-2);
+    line-height:1.4;
+    margin-bottom:1rem;
+  }
+  .letter .sign{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(1.4rem,6vw,2.1rem);
+    color:var(--gold);
+    text-align:right;
+    margin-top:1.4rem;
+    line-height:1.4;
+  }
+  .letter .sign small{
+    display:block;
+    font-family:'Cormorant Garamond',serif;
+    font-size:.62em;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:rgba(253,247,234,.55);
+    margin-top:.4rem;
+  }
+
+  /* ---------- pillars ---------- */
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));
+    gap:1rem;
+    margin-top:2.2rem;
+  }
+  .pillar{
+    border:1px solid rgba(233,196,106,.22);
+    border-radius:clamp(14px,3.5vw,18px);
+    padding:clamp(1.2rem,4.5vw,1.6rem) clamp(1rem,3.5vw,1.3rem);
+    text-align:center;
+    background:linear-gradient(160deg, rgba(233,196,106,.09), rgba(255,255,255,.02));
+    transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+  }
+  @media (hover:hover){
+    .pillar:hover{
+      transform:translateY(-6px);
+      border-color:rgba(233,196,106,.55);
+      box-shadow:0 22px 45px -28px rgba(233,196,106,.7);
+    }
+  }
+  .pillar:active{border-color:rgba(233,196,106,.55)}
+  .pillar .glyph{font-size:1.4rem;display:block;margin-bottom:.5rem}
+  .pillar h3{
+    font-family:'Great Vibes',cursive;
+    font-weight:400;
+    font-size:clamp(1.4rem,5.5vw,1.7rem);
+    color:var(--gold-2);
+    margin-bottom:.35rem;
+  }
+  .pillar p{font-size:clamp(.9rem,3.5vw,.98rem);color:rgba(253,247,234,.72);font-style:italic}
+
+  /* ---------- dua ---------- */
+  .dua .arabic{font-size:clamp(1.1rem,5.5vw,2rem)}
+
+  /* ---------- footer ---------- */
+  footer{
+    text-align:center;
+    padding: 2.5rem max(1rem, var(--sal)) calc(3rem + var(--sab)) max(1rem, var(--sar));
+    color:rgba(253,247,234,.5);
+    font-size:clamp(.8rem,3vw,.9rem);
+    letter-spacing:.05em;
+    line-height:1.8;
+  }
+  footer .heart{color:var(--blush)}
+
+  /* ---------- button ---------- */
+  .love-btn{
+    display:block;
+    margin:2.2rem auto 0;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(.85rem,3.4vw,1rem);
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:linear-gradient(180deg,#f8e7b3,var(--gold) 55%,var(--gold-3));
+    border:none;border-radius:999px;
+    padding: 1rem 2rem;
+    min-height:48px;
+    min-width:200px;
+    cursor:pointer;
+    box-shadow:0 16px 40px -18px rgba(233,196,106,.9);
+    transition:transform .25s ease, box-shadow .25s ease;
+    -webkit-appearance:none;
+    appearance:none;
+    font-weight:600;
+  }
+  @media (hover:hover){
+    .love-btn:hover{transform:translateY(-3px);box-shadow:0 22px 50px -18px rgba(233,196,106,1)}
+  }
+  .love-btn:active{transform:translateY(0) scale(.97)}
+
+  .fly-heart{
+    position:fixed;
+    z-index:99;
+    pointer-events:none;
+    font-size:1.4rem;
+    animation:fly 1.6s ease-out forwards;
+    will-change:transform,opacity;
+  }
+  @keyframes fly{
+    0%{opacity:1;transform:translate(-50%,-50%) scale(.6)}
+    100%{opacity:0;transform:translate(-50%,-260px) scale(1.5) rotate(25deg)}
+  }
+
+  /* ═══════════════════════════════════════════
+     MOBILE BREAKPOINTS
+     ═══════════════════════════════════════════ */
+
+  /* Small phones (≤380px) */
+  @media (max-width:380px){
+    .counters{gap:.4rem}
+    .c-card{border-radius:10px;padding:.7rem .2rem}
+    .c-card b{font-size:clamp(1.4rem,9vw,2rem)}
+    .c-card small{letter-spacing:.12em;font-size:.5rem}
+    .names{font-size:clamp(2.2rem,14vw,3rem)}
+    .date-line{letter-spacing:.15em}
+    .letter{padding:0 .15rem}
+    .pillars{gap:.8rem}
+    .love-btn{min-width:0;width:100%;max-width:280px}
+  }
+
+  /* Phones (≤520px) */
+  @media (max-width:520px){
+    section{padding-top:2.5rem;padding-bottom:2.5rem}
+    .hero{padding-top: calc(3rem + var(--sat));padding-bottom: calc(3.5rem + var(--sab))}
+    .tagline br{display:inline}
+    .ornament{letter-spacing:.35em;font-size:.75rem}
+    .arabic{line-height:1.85}
+    .letter{text-align:left}
+    .letter .sign{text-align:center}
+    .pillars{grid-template-columns:1fr 1fr}
+    .pillar:nth-child(odd):last-child{grid-column:1 / -1}
+  }
+
+  /* Very narrow: pillars single column */
+  @media (max-width:360px){
+    .pillars{grid-template-columns:1fr}
+    .pillar:nth-child(odd):last-child{grid-column:auto}
+  }
+
+  /* Tablets (521px–900px) */
+  @media (min-width:521px) and (max-width:900px){
+    .names{font-size:clamp(4rem,10vw,6rem)}
+    .counters{gap:1rem}
+    .pillars{grid-template-columns:repeat(2,1fr)}
+  }
+
+  /* Landscape phone tweaks */
+  @media (max-height:520px) and (orientation:landscape){
+    .hero{min-height:auto;padding-top:calc(3rem + var(--sat));padding-bottom:3rem}
+    .scroll-hint{display:none}
+    .names{font-size:clamp(2rem,7vh,4rem)}
+    .tagline{margin-top:1rem}
+    .ornament{margin-top:1.2rem}
+  }
+
+  /* Desktop (≥901px) */
+  @media (min-width:901px){
+    .pillars{grid-template-columns:repeat(4,1fr)}
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important}
+    .petals{display:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* Dark mode friendly (already dark) */
+  @media (prefers-color-scheme: light){
+    /* keep the elegant dark theme regardless */
+  }
+</style>
+</head>
+<body>
+
+<div class="petals" id="petals" aria-hidden="true"></div>
+
+<main>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero">
+    <p class="eyebrow">Alhamdulillah</p>
+
+    <h1 class="names">Naseeb <span class="amp">&amp;</span> Darksha</h1>
+
+    <p class="date-line">Nikah <span class="dot">•</span> 29 March</p>
+
+    <p class="tagline">
+      Half a century of love begins with a single day —<br>
+      and ours began with <em>Bismillah</em>.
+    </p>
+
+    <div class="ornament">✦ ─── ♥ ─── ✦</div>
+
+    <div class="scroll-hint" aria-hidden="true">⌄</div>
+  </section>
+
+  <!-- ══════════ COUNTER ══════════ -->
+  <section>
+    <div class="wrap">
+      <h2 class="sec-title">Our Journey So Far</h2>
+      <p class="sec-sub">By the mercy of Allah</p>
+
+      <div class="counters">
+        <div class="c-card"><b id="years">0</b><small>Years</small></div>
+        <div class="c-card"><b id="months">0</b><small>Months</small></div>
+        <div class="c-card"><b id="days">0</b><small>Days</small></div>
+      </div>
+
+      <p class="ticker" id="ticker">00:00:00</p>
+      <p class="total">That is <b id="totalDays">0</b> days of us — and every second still feels new.</p>
+
+      <button class="love-btn" id="loveBtn">Send Love ♥</button>
+    </div>
+  </section>
+
+  <!-- ══════════ VERSE ══════════ -->
+  <section>
+    <div class="wrap">
+      <div class="card">
+        <p class="arabic">وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+        <p class="trans">“And He placed between you affection and mercy.”</p>
+        <p class="ref">Surah Ar-Rum · 30:21</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ LETTER ══════════ -->
+  <section>
+    <div class="wrap">
+      <h2 class="sec-title">A Little Note</h2>
+      <p class="sec-sub">From my heart to yours</p>
+
+      <div class="card" style="margin-top:2.2rem">
+        <div class="letter">
+          <p class="salute">My dearest Darksha,</p>
+
+          <p>
+            On the 29th of March, two names were written together in a single line —
+            <strong style="color:var(--gold-2)">Naseeb</strong> and
+            <strong style="color:var(--gold-2)">Darksha</strong>.
+            What began as a Nikah, a promise spoken before Allah, has quietly become
+            my whole world.
+          </p>
+
+          <p>
+            You are the calm in my mornings and the du'a in my nights. With you,
+            an ordinary day becomes a blessing, and a hard day becomes bearable.
+            Allah gave me in you what no wealth could ever buy — sakinah.
+          </p>
+
+          <p>
+            If a half century of love is what lies ahead, then let it come.
+            I will spend every one of those years choosing you again —
+            in ease and in hardship, in laughter and in silence,
+            in this world and in the hope of the next.
+          </p>
+
+          <p>
+            Thank you for saying yes. Thank you for staying.
+            Thank you for being <em>mine</em>.
+          </p>
+
+          <p class="sign">
+            Yours, always —<br>Naseeb
+            <small>Your husband, your friend, your home</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ PILLARS ══════════ -->
+  <section>
+    <div class="wrap">
+      <h2 class="sec-title">What Allah Placed Between Us</h2>
+      <p class="sec-sub">The four gifts of a blessed marriage</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <span class="glyph">🕊️</span>
+          <h3>Sakinah</h3>
+          <p>Peace that settles the heart, the quiet of coming home.</p>
+        </div>
+        <div class="pillar">
+          <span class="glyph">💛</span>
+          <h3>Mawaddah</h3>
+          <p>Love that grows deeper with every passing year.</p>
+        </div>
+        <div class="pillar">
+          <span class="glyph">🤲</span>
+          <h3>Rahmah</h3>
+          <p>Mercy that forgives first and keeps no count.</p>
+        </div>
+        <div class="pillar">
+          <span class="glyph">🌙</span>
+          <h3>Barakah</h3>
+          <p>Blessing that turns two into something greater than two.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ DUA ══════════ -->
+  <section class="dua">
+    <div class="wrap">
+      <div class="card">
+        <h2 class="sec-title" style="margin-bottom:1.4rem">Our Du'a</h2>
+        <p class="arabic">بَارَكَ اللهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْر</p>
+        <p class="trans">
+          “May Allah bless you both, and shower His blessings upon you,
+          and keep you together in goodness.”
+        </p>
+        <p class="ref">Ameen · Ya Rabb al-Alameen</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Made with love, for Naseeb <span class="heart">♥</span> Darksha
+    <br>
+    <span style="opacity:.55;font-size:.85em">29 March · and every day after</span>
+  </footer>
+
+</main>
+
+<script>
+  /* ═══════════════════════════════════════════════════════
+     NIKAH DATE
+     Change the year below if your Nikah was in an earlier year.
+     ═══════════════════════════════════════════════════════ */
+  const NIKAH = new Date(2026, 2, 29, 0, 0, 0);  // 2 = March
+
+  const el = {
+    years: document.getElementById('years'),
+    months: document.getElementById('months'),
+    days: document.getElementById('days'),
+    ticker: document.getElementById('ticker'),
+    totalDays: document.getElementById('totalDays')
+  };
+
+  const pad = n => String(n).padStart(2, '0');
+
+  function updateCounter(){
+    const now = new Date();
+
+    let y = now.getFullYear() - NIKAH.getFullYear();
+    let m = now.getMonth()    - NIKAH.getMonth();
+    let d = now.getDate()     - NIKAH.getDate();
+
+    if (d < 0){
+      m -= 1;
+      d += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+    }
+    if (m < 0){ y -= 1; m += 12; }
+
+    el.years.textContent  = y;
+    el.months.textContent = m;
+    el.days.textContent   = d;
+
+    const total = Math.floor((now - NIKAH) / 86400000);
+    el.totalDays.textContent = total.toLocaleString();
+
+    el.ticker.textContent =
+      pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+  }
+
+  updateCounter();
+  setInterval(updateCounter, 1000);
+
+  /* ---------- floating petals (adaptive count) ---------- */
+  (function makePetals(){
+    const box = document.getElementById('petals');
+    const glyphs = ['🌸','🌹','🤍','💛','✦','❁','🌼'];
+
+    // reduce particles on small devices for performance & clarity
+    const w = window.innerWidth;
+    const count = w < 400 ? 8 : w < 600 ? 12 : w < 900 ? 18 : 26;
+
+    for (let i = 0; i < count; i++){
+      const s = document.createElement('span');
+      s.className = 'petal';
+      s.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.fontSize = (10 + Math.random() * 16) + 'px';
+      s.style.opacity = (0.18 + Math.random() * 0.45).toFixed(2);
+      s.style.animationDuration = (10 + Math.random() * 14) + 's';
+      s.style.animationDelay = (-Math.random() * 22) + 's';
+      box.appendChild(s);
+    }
+  })();
+
+  /* ---------- send love button ---------- */
+  document.getElementById('loveBtn').addEventListener('click', function(){
+    const r = this.getBoundingClientRect();
+    const cx = r.left + r.width / 2;
+    const cy = r.top;
+
+    const isMobile = window.innerWidth < 600;
+    const hearts = isMobile ? 10 : 14;
+
+    for (let i = 0; i < hearts; i++){
+      const h = document.createElement('span');
+      h.className = 'fly-heart';
+      h.textContent = ['♥','💛','🌸','✨','🤍'][Math.floor(Math.random() * 5)];
+      h.style.left = (cx + (Math.random() - 0.5) * (isMobile ? 140 : 220)) + 'px';
+      h.style.top  = (cy + (Math.random() - 0.5) * 40) + 'px';
+      h.style.animationDelay = (Math.random() * 0.35) + 's';
+      h.style.fontSize = (14 + Math.random() * 20) + 'px';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 2200);
+    }
+
+    // gentle haptic feedback on supported devices
+    if (navigator.vibrate) navigator.vibrate(30);
+  });
+
+  /* ---------- fix iOS 100vh address bar issue ---------- */
+  function setVH(){
+    document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
+  }
+  setVH();
+  window.addEventListener('resize', setVH);
+  window.addEventListener('orientationchange', setVH);
+</script>
+</body>
+</html>
